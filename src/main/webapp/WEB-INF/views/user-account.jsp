@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../layout/taglib.jsp"%>
+<link rel="stylesheet" href="../../resources/files/bootstrap.css">
+
 <html>
+
 
 
 <!-- Button trigger modal -->
@@ -30,7 +33,7 @@
 					</div>
 					<div class="form-group">
 						<label for="url" class="control-label col-sm-2 ">Url:</label>
-						<div class="col-sm-6"> 
+						<div class="col-sm-6">
 							<form:input path="url" cssClass="form-control" />
 							<form:errors path="url"></form:errors>
 						</div>
@@ -74,15 +77,18 @@
 
 				<table class="table table-hover table-bordered table-striped">
 					<tr>
-						<th>Title</th>
-						<th>Link</th>
+						<th>Date</th>
+						<th>Item</th>
+
 					</tr>
 					<c:forEach items="${blog.items }" var="item">
 						<tbody>
 							<tr>
-								<td><c:out value="${item.title }"></c:out></td>
-								<td><a href="${item.link }"><c:out
-											value="${item.link }"></c:out></a></td>
+								<td><c:out value="${item.publishedDate }"></c:out></td>
+								<td><strong> <a href="${item.link }"
+										target="_blank"><c:out value="${item.title }"></c:out></a>
+								</strong><br> ${item.description } <span class="socialShare pull-right"></span></td>
+
 							</tr>
 
 
@@ -130,6 +136,7 @@
 
 <script type="text/javascript">
 	$(function() {
+
 		$('.nav-tabs a:first').tab('show') // Select first tab
 		$('.triggerRemove').click(function(e) {
 			e.preventDefault();
@@ -161,6 +168,7 @@
 
 					}
 				});
+
 
 	});
 </script>

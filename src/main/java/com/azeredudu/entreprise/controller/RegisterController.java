@@ -10,43 +10,46 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.azeredudu.entreprise.entity.User;
 import com.azeredudu.entreprise.service.UserService;
 
 @Controller
-@RequestMapping(value = "/register")
+@RequestMapping( value = "/register" )
 public class RegisterController {
-	@Autowired
-	private UserService userService;
+    @Autowired
+    private UserService userService;
 
-	@ModelAttribute("user")
-	public User contructUSer() {
-		return new User();
-	}
+    @ModelAttribute( "user" )
+    public User contructUSer() {
+        return new User();
+    }
 
-	@RequestMapping
-	public String Showregister() {
-		return "user-register";
-	}
+    @RequestMapping
+    public String Showregister() {
+        return "user-register";
+    }
 
-	@RequestMapping(method = RequestMethod.POST)
-	public String doRegister(@Valid @ModelAttribute("user") User user,
-			BindingResult result) {
-		if (result.hasErrors()) {
-			return "user-register";
-		}
+    @RequestMapping( method = RequestMethod.POST )
+    public String doRegister( @Valid @ModelAttribute( "user" ) User user,
+            BindingResult result, RedirectAttributes redirectAttributes ) {
+        if ( result.hasErrors() ) {
+            return "user-register";
+        }
 
-		userService.save(user);
-		return "redirect:/register.html?success=true";
-	}
+        userService.save( user );
+        redirectAttributes.addFlashAttribute( "success", true );
+      
+        return "redirect:/register.html";
+    }
 
-	@RequestMapping("/available")
-	@ResponseBody
-	public String available(@RequestParam String username) {
-		Boolean available = userService.findOne(username) == null;
-		return available.toString();
+    @RequestMapping( "/available" )
+    @ResponseBody
+    public String available( @RequestParam String username ) {
+        Boolean available = userService.findOne( username ) == null;
+        return available.toString();
 
-	}
+    }
 
 }
