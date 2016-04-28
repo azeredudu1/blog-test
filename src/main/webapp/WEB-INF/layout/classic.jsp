@@ -6,8 +6,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
-
+<script type="text/javascript"
+		src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
@@ -27,8 +31,7 @@
 <title><tiles:getAsString name="title"></tiles:getAsString></title>
 </head>
 <body>
-
-<%-- 	<tilesx:useAttribute name="current" /> --%>
+	<%-- 	<tilesx:useAttribute name="current" /> --%>
 	<div class="container">
 
 		<!-- Static navbar -->
@@ -43,7 +46,8 @@
 						class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href='<spring:url value="/"></spring:url>'
-					style="padding: 10px;" ><img alt="log" src="<%=request.getContextPath( ) %>/resources/files/icon.png"></a>
+					style="padding: 10px;"><img alt="log"
+					src="<%=request.getContextPath()%>/resources/files/icon.png"></a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
@@ -71,7 +75,8 @@
 							href='<spring:url value="/account.html"></spring:url>'>My
 								account</a></li>
 						<li><a href='<spring:url value="/logout"></spring:url>'><span
-								class="glyphicon-log-out glyphicon " title="logout"></span> Hi, ${user.name } </a></li>
+								class="glyphicon-log-out glyphicon " title="logout"></span> Hi,
+								${user.name } </a></li>
 					</security:authorize>
 
 
@@ -92,15 +97,13 @@
 
 		</center>
 	</div>
+
 	<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script type="text/javascript"
-	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script type="text/javascript"
-	src="<%=request.getContextPath()%>/resources/files/plugin.js"></script>
-<script type="text/javascript"
-	src="<%=request.getContextPath()%>/resources/files/demo.js"></script>
+		src="<%=request.getContextPath()%>/resources/files/plugin.js"></script>
+	<script type="text/javascript"
+		src="<%=request.getContextPath()%>/resources/files/demo.js"></script>
+	
 </body>
 </html>

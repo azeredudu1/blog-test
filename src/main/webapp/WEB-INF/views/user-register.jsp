@@ -60,15 +60,15 @@
 				.validate(
 						{
 							rules : {
-								name : {
+								username : {
 									required : true,
 									minlength : 3,
 									remote : {
-										url : "<spring:url value='/register/available.html' />",
+										url : "<spring:url value='/inscription/available' />",
 										type : "get",
 										data : {
 											username : function() {
-												return $("#name").val();
+												return $("#username").val();
 
 											}
 
@@ -88,7 +88,7 @@
 
 								},
 								password_again : {
-									required : true,
+									required : "",
 									minlength : 5,
 									equalTo : "#password"
 								}
@@ -105,7 +105,7 @@
 
 							},
 							messages : {
-								name : {
+								username : {
 									remote : "Such username already exists!"
 								}
 							}
